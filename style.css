@@ -1,0 +1,347 @@
+#menu
+{
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	top: 0;
+
+}
+body {
+	background-image: url("pacman/start_img.jpg");
+  	font-family:Impact, fantasy;
+  	margin: 0;
+	padding: 0;
+	background-size: auto;
+	background-size: cover;
+	font-size: 20px;
+	height: 100%;
+	/* margin-bottom:100px;
+	clear: both; */
+
+}
+div#container {
+	min-height: 100%;
+	margin: 0 auto -80px;/*switch it to -80px auto 0*/
+	overflow:hidden;/*add*/
+	}
+	* html div#container {
+	overflow:visible;
+	height:100%;
+}
+
+
+form {
+	margin-left: 35%;
+    margin-right:0%;
+    width: 80%;
+}
+
+.navbar {
+	overflow: hidden;
+	background-color: #333; 
+	text-shadow: 1px 1px 2px rgb(27, 1, 1), 0 0 25px rgb(126, 15, 76), 0 0 5px rgb(241, 11, 11);
+
+
+}
+  
+  .navbar a {
+	float: left;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+  
+  .subnav {
+	float: left;
+	overflow: hidden;
+}
+  
+  .subnav .subnavbtn {
+	font-size: 25px;  
+	border: none;
+	outline: none;
+	color: white;
+	padding: 14px 16px;
+	background-color: inherit;
+	font-family: inherit;
+	margin: 0;
+}
+  
+  .navbar a:hover, .subnav:hover .subnavbtn {
+	background-color:  rgba(190, 91, 169, 0.897);
+}
+  
+  .subnav-content {
+	display: none;
+	position: absolute;
+	left: 0;
+	background-color: rgba(32, 121, 10, 0.897);
+	width: 100%;
+	z-index: 1;
+  }
+  
+  .subnav-content a {
+	float: left;
+	color: white;
+	text-decoration: none;
+  }
+  
+  .subnav-content a:hover {
+	background-color: #eee;
+	color: black;
+  }
+  
+  .subnav:hover .subnav-content {
+	display: block;
+  }
+
+
+.fontSizeBig {
+	font-size: 70px;
+	text-shadow: 1px 1px 2px rgb(231, 223, 223), 0 0 25px rgb(15, 126, 80), 0 0 5px rgb(131, 226, 94);
+
+}
+.fontSizeMid {
+	font-size: 55px;
+	text-shadow: 2px 2px 4px #d0ee8b;
+}
+.center-block {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	
+  }
+
+  *, *:before, *:after {
+	box-sizing: border-box;
+  }
+  #menu.main {
+	background-image: url('imgs/menu-bg.png');
+  }
+  #main {
+	display: none;
+	height: 60%;
+	overflow: auto;
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+  }
+  #main h1 {
+	color: white;
+	font-family: Impact, fantasy;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+  .button1,.button2 {
+	display:inline-block;
+	width: 250px;
+	margin: 0 auto;
+	height: 50px;
+	line-height: 30px;
+	border: 1px solid #AA2666;
+	color: white;
+	font-weight: bold;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+	background-color: #FB1886;
+	background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%);
+	background-image:         linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
+	border-radius: 5px;
+  }
+  #button1 , #button2 {
+	display:inline-block;
+	width: 300px;
+    height: 40px;
+	width: 250px;
+	margin: 0 auto;
+	height: 50px;
+	line-height: 30px;
+	border: 1px solid #AA2666;
+	color: white;
+	font-weight: bold;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+	background-color: #FB1886;
+	background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%);
+	background-image:         linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
+	border-radius: 5px;
+	}
+	#butn{
+		margin: 0 auto;
+		display: block;
+	}
+	#contact_form_singup {
+		position: absolute;
+		top: 65%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 600px;
+		height: 570px;
+		padding: 5px 10px;
+		background: rgba(213, 238, 102, 0.5);
+	}
+	#contact_form_login {
+		position: absolute;
+		top: 55%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 500px;
+		height: 350px;
+		padding: 40px 10px;
+		background: rgba(213, 238, 102, 0.5);
+	}
+	label{
+		text-shadow: 2px 2px 3px rgb(231, 223, 223), 0 0 25px rgb(126, 15, 76), 0 0 5px rgb(241, 11, 11);
+	}
+	
+	.small_button {
+		display:inline-block;
+		width: 100px;
+		margin: 0 auto;
+		height: 30px;
+		line-height: 30px;
+		border: 1px solid #AA2666;
+		color: white;
+		font-weight: bold;
+		text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+		background-color: #FB1886;
+		background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%);
+		background-image:         linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
+		border-radius: 5px;
+	  }
+	  .very_small_button {
+		display:inline-block;
+		width: 70px;
+		height:25px;
+		line-height: 30px;
+		border: 1px solid #AA2666;
+		color: white;
+		font-weight: bold;
+		font-size: 10px;
+		text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+		background-color: #FB1886;
+		/* background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%); */
+		background-image:   linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
+		border-radius: 5px;
+	  }
+	
+	  #Game_settings{
+		position: absolute;
+		top: 65%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 775px;
+		height: 560px;
+		padding: 5px 10px;
+		background: rgba(213, 238, 102, 0.5);
+	}
+	canvas {
+		padding-left: 0;
+		padding-right: 0;
+		margin-left: 32%;
+		margin-right: auto;
+		margin-top: -32%;
+		background-color: rgba(136, 103, 145, 0.61); 
+		border:2px solid;
+		
+	}
+	*******************************************************************************	
+	  
+	div#push {
+		height: 1050px;
+		/* clear: both; */
+		}
+	footer {
+		/* padding: 0 10px 0 10px;                  */
+	   height:60px;
+	   text-align: center;		
+	   font-size: 14px; 
+	   bottom: -10%;
+	   position: absolute;
+	   width: 100%;
+	   text-shadow: 2px 2px 3px rgb(231, 223, 223), 0 0 25px rgb(126, 15, 76), 0 0 5px rgb(241, 11, 11);
+	   margin: 0 auto;
+
+	}
+
+/* Center the image and position the close button */
+.imgcontainer {
+	text-align: center;
+	margin: 24px 0 12px 0;
+	position: relative;
+  }
+  
+  img.avatar {
+	width: 40%;
+	border-radius: 50%;
+  }
+  
+  .container-about {
+	padding: 16px;
+  }
+  
+  /* The Modal (background) */
+  .modal_about {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+	background-color: #c596b9;
+	margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+	border: 3px solid #888;
+	width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button (x) */
+  .close {
+	position: absolute;
+	right: 25px;
+	top: 0;
+	color: #000;
+	font-size: 35px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: red;
+	cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+	-webkit-animation: animatezoom 0.6s;
+	animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+	from {-webkit-transform: scale(0)} 
+	to {-webkit-transform: scale(1)}
+  }
+	
+  @keyframes animatezoom {
+	from {transform: scale(0)} 
+	to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+	span.psw {
+	   display: block;
+	   float: none;
+	}
+	.cancelbtn {
+	   width: 100%;
+	}
+  }
+  

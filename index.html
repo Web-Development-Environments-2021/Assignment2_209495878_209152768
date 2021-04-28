@@ -1,21 +1,244 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<TITLE>Hadas & Neta Pacman &#128579;</TITLE>
+		<meta charset="UTF-8">
+		<title>PACMAN</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="shortcut icon" href="#">
 		<script src="./jquery-3.4.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
 	</head>
-
 	<body>
-		<div id="score">
-			<label for="lblScore">SCORE:</label>
-			<input id="lblScore" type="text" />
+
+		<div id="menu" >
+			<div class="navbar">
+				<a id="menu_welcome" onclick="show_func('welcome')">Welcome</a>
+				<a id="menu_login" onclick="show_func('login_form')">Log In</a>
+				<a id="menu_register" onclick="show_func('signup_form')">Register</a>
+				<a id="menu_about" onclick="openDialog()">About</a>
+			</div>
 		</div>
-		<div id="time">
-			<label for="lblTime">TIME:</label>
-			<input id="lblTime" type="text" />
+		<div id="aboutModal" class="modal_about">
+			<div class="modal-content animate" >
+				<div class="imgcontainer">
+				<span onclick="document.getElementById('aboutModal').style.display='none'" class="close" title="Close Modal">&times;</span>
+				</div>
+				<div class="container-about">
+					<p>
+						This game was developed by Hadas Cohen & Neta Barel. 
+						<br>
+						We use the jquery validate plug-in and date picker plugin.
+						<br>
+						<br>
+						The difficulties we encountered during development are:
+						<br>
+						-Error detection in code - In the development environment 
+						it was very difficult to find out the source of the problem in the code.
+						<br>
+						-The movement of the figures: It was difficult to create a synchronization
+						between the movements of the characters
+						<br>
+						<br>
+						Hope you enjoy &#128516;
+					</p>
+				</div>
+			</div>
+		</div>
+		<script>
+			var modal = document.getElementById('aboutModal');
+			window.onclick = function(event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+			$( document ).on( 'keydown', function ( e ) {
+				if ( e.keyCode === 27 ) { // ESC
+					modal.style.display = "none";
+				}
+			});
+		</script>
+	<br>
+	
+	<h1 id="pacman_h" style=" margin-left: 40%; font-size: 65px; text-shadow: 2px 2px 3px rgb(231, 223, 223), 0 0 25px rgb(126, 15, 76), 0 0 5px rgb(241, 11, 11);">PACMAN</h1>
+	<!-- WELCOME  -->
+	<div id="welcome">
+		<button id="signDiv-signIn" class="button1" style="margin-left: 30%;" onclick="show_func('login_form')" >Sign In</button>
+		<button id="signDiv-signUp" class="button2" style="margin-left: 2%;" onclick="show_func('signup_form')" >Sign Up</button>
+	</div>
+	<!-- LOGIN -->
+	<div id="login_form" class="modal" style="display: none;">
+		<form id="contact_form_login" style=" margin: auto;" >
+		<div class="container" style="margin-left: 25%; ">
+			<label  for="loginName"><b>Username</b></label>
+			<input id="id_loginName" type="text" placeholder="Enter Username" name="n_loginName" required >
+			<br>
+			<br>
+			<label for="loginPassword"><b>Password</b></label>
+			<input id="id_loginPassword" type="password" placeholder="Enter Password" name="n_loginPassword" required>
+			<br>
+			<br>
+			<button id="button1" type="submit" value="Login">Login</button>
+			<br>
+			<br>
+			<button  id="button2" type="button" onclick="closeB()" class="cancelbtn">Cancel</button>
+		</div>
+		</form>
+	</div>
+	<!-- SIGNUP -->
+	<div id="signup_form" style="display: none;" class="box">
+		<form  id="contact_form_singup" style=" margin: auto;"  >
+		<div class="container" style="margin-left: 25%; ">
+			<p>Please fill in this form to create an account.</p>
+			<label for="id_singUpName" ><b>Name</b></label>
+			<input id="id_singUpName" type="text" placeholder="Enter name" name="n_singUpName" >
+			<br>
+			<br>
+			<label for="singUpLastName"><b>Last Name</b></label>
+			<input id="singUpLastName" type="text" placeholder="Enter last name" name="n_singUpLastName" >
+			<br>
+			<br>
+			<label  for="id_singUpUserName"><b>Username</b></label>
+			<input id="id_singUpUserName"type="text" placeholder="Enter Username" name="n_singUpUserName" >
+			<br>
+			<br>
+			<label for="id_singUpPassword"><b>Password</b></label>
+			<input id="id_singUpPassword" type="password" placeholder="Enter Password" name="n_singUpPassword" >
+			<br>
+			<br>
+			<label for="singUpEmail"><b>Email</b></label>
+			<input id="singUpEmail" type="text" placeholder="Enter Email" name="n_singUpEmail" >
+			<br>
+			<br>
+			<label>Birth Day Date</label>
+			<input type="date" name="BD" id="BD_date"/>
+			<br>
+			<br>
+			<button id="button1" type="submit" value="Register">Sign Up</button>
+			<br>
+			<br>
+			<button id="button2" type="button" onclick="closeB()" class="cancelbtn">Cancel</button>
+		</div>
+		</form>
+	</div>
+	<script>
+		function closeB(){
+			document.getElementById('login_form').style.display='none';
+			document.getElementById('signup_form').style.display='none';
+			document.getElementById('welcome').style.display='block';
+		};
+	</script>
+
+<!-- Game SETTING -->
+	<div id ="Game_settings" style="display:none">
+		<h2 style=" text-align: center;">Game Settings</h2>
+		<form id="form_Game_settings" style="margin-left: 0%;">
+			<h3>Please select the keys you will use during the game:</h3>
+			<p>
+				<label>Up Key:</label>
+				<input class="very_small_button" type="button" id="setting_b_up" name="setting_b_up" onclick="GameSetting('up')" value="Arrow Up"/>
+				<label>Down Key:</label>
+				<input class="very_small_button" type="button" id="setting_b_down" name="setting_b_down" onclick="GameSetting('down')" value="Arrow Down"/>
+				<label>Left Key:</label>
+				<input class="very_small_button" type="button" id="setting_b_left" name="setting_b_left" onclick="GameSetting('left')" value="Arrow Left"/>
+				<label>Right Key:</label>
+				<input class="very_small_button" type="button" id="setting_b_right" name="setting_b_right" onclick="GameSetting('right')" value="Arrow Right"/>
+			</p>
+			<label>Please select the number of balls:(between 50 and 90)</label>
+			<br>
+			<input type="range" id="balls_num" min="50" max="90" step="1" value="50" oninput="B_range.value=this.value" onchange="num_balls(this.value)"/>
+			<output id="B_range" name="B_range" for="balls_num">50</output>
+			<br>
+			<label>Please select the color of each ball: </label>
+			<p>
+				<label>For 5 Points:
+					<input type="color" id="color_5" onclick="setting_color('5')" value="#0066ff" style="display: inline-block"/>
+				</label>
+				<label> For 15 Points:
+					<input type="color" id="color_15" onclick="setting_color('15')" value="#00ff00" style="display: inline-block"/>
+				</label>
+				<label> For 25 Points:
+					<input type="color" id="color_25" onclick="setting_color('25')" value="#ff3300" style="display: inline-block"/>
+				</label>
+			</p>
+			<p>
+			<label>Duration of the game(sec):
+				<input type="number" id="setting_game_time" name="n_setting_game_time" min="60" value="60" onclick="GameSetting_time(this.value)"/>
+			</label>
+			</p>
+			<p>
+			<label for="monsters" >Please select the number of monsters that will haunt you (1-4):
+				<select id="monsters" onchange="GameSetting_monsters(this.value)">
+					<option value="1" >&#128126</option>
+					<option value="2">&#128126 &#128126</option>
+					<option value="3">&#128126 &#128126 &#128126</option>
+					<option value="4" selected >&#128126 &#128126 &#128126 &#128126</option>
+					</select>
+			</label>
+		</p>				
+		<label>For random settings:</label>
+			<input  class="small_button"type="button" value="Random" id="random_b" onclick='randomSetting()'/>
+			<br>
+			<input class="small_button" type="submit" value="Start Game" id="start_game_b"/>
+		</form>
+	</div>
+
+<!-- GAME -->
+	<div id ="game_mode" style="display:none">
+		<div id="game_setting_box" style=" margin-left:2%;">
+			<div id="score">
+				<label for="lblScore">SCORE:</label>
+				<input id="lblScore" type="text" />
+			</div>
+			<div id="time">
+				<label for="lblTime">TIME:</label>
+				<input id="lblTime" type="text" />
+			</div>
+			<div id="strike">
+				<label for="lblStrike">STRIKE:</label>
+				<input id="lblStrike" type="text" />
+			</div>
+			<p id="set_val" style="display:inline-block; text-shadow: 2px 2px 3px rgb(231, 223, 223), 0 0 25px rgb(126, 15, 76), 0 0 5px rgb(241, 11, 11);" ></p>
+			<br>
+			<label for="selected_5_points" class="label" >Your 5 Poins choice:</label>
+			<input id="selected_5_points" type="color" />
+			<br>
+			<label for="selected_15_points" >Your 15 Poins choice:</label>
+			<input id="selected_15_points" type="color" />
+			<br>
+			<label for="selected_25_points" class="label" >Your 25 Poins choice:</label>
+			<input id="selected_25_points" type="color" />
+			<br>
+			<input class="small_button" type="submit" id="new_game" value="new Game" onclick="NewGame()"/>
 		</div>
 		<div id="game">
-			<canvas id="canvas" height="600" width="600"></canvas>
+			<canvas id="canvas" height="600" width="600" style="display:inline-block"></canvas>
 		</div>
+		<audio id = "targetSound" preload = "auto">
+			<source src = "music/audio_die.mp3" type = "audio/mpeg"/></audio>
+		<audio id = "game_music" preload = "auto">
+			<source src = "music/Minoru 187 - Gaming Background Music (HD).mp3" type = "audio/mpeg"/></audio>
+	</div>
+	<!-- -->
+	<footer>
+		The site was created by Neta Barel and Hadas Cohen in 2021.<br>You can contact us by email: netaso@post.bgu.ac.il, hadas5@post.bgu.ac.il.
+	</footer>
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
